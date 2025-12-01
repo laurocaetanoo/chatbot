@@ -18,24 +18,26 @@ MODELO_LLM_LITE = "gemini-2.5-flash-lite"
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
+        footer {visibility: hidden !important; height: 0px !important;}
+        .stFooter {display: none !important;}
+        a[href^="https://streamlit.io/cloud"] {display: none !important;}
+        div[class*="viewerBadge"] {display: none !important;}
+                
         [data-testid="stToolbar"] {
-            visibility: hidden;
-            display: none;
+            right: 2rem; 
+            visibility: hidden !important; 
+            display: none !important;
         }   
-        #MainMenu {
-            visibility: hidden;
-            display: none;
+        [data-testid="stSidebarNav"] {
+            visibility: visible !important;
+            display: block !important;
         }
-        footer {
-            visibility: hidden !important;
-            display: none !important;
+        [data-testid="collapsedControl"] {
+            visibility: visible !important;
+            display: block !important;
+            z-index: 99999 !important; 
         }
-        [data-testid="stFooter"] {
-            display: none !important;
-        }
-        .viewerBadge_container__1QSob {
-            display: none !important;
-        }
+        
 
         .stMarkdown p {
             font-size: 1.1rem; 
