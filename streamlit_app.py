@@ -18,7 +18,9 @@ MODELO_LLM_LITE = "gemini-2.5-flash-lite"
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style>
-        #MainMenu {visibility: hidden;}     
+        #MainMenu {visibility: hidden;}  
+        footer {visibility: hidden;}
+        [data-testid="stToolbar"] {visibility: hidden !important;}   
 
         .stMarkdown p {
             font-size: 1.1rem; 
@@ -28,8 +30,8 @@ def aplicar_estilo_responsivo():
         @media (max-width: 768px) {
             
             h1 {
-                font-size: 1.8rem !important;
-                padding-top: 0rem !important;
+                font-size: 1.6rem !important;
+                margin-top: 0.5rem !important;
             }
             
             .stMarkdown p {
@@ -42,9 +44,10 @@ def aplicar_estilo_responsivo():
             }
 
             .block-container {
-                padding-top: 2rem !important;
+                padding-top: 3rem !important;
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
+                padding-bottom: 5rem !important;
             }
             
             .stChatInput textarea {
