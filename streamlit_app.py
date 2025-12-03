@@ -18,46 +18,59 @@ MODELO_LLM_LITE = "gemini-2.5-flash-lite"
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
-        footer {
-            visibility: hidden;
+        [data-testid="stDecoration"] {
             display: none !important;
         }
+        
         [data-testid="stToolbar"] {
-            visibility: hidden !important;
             display: none !important;
         }
-
+        
         [data-testid="stHeaderActionElements"] {
-            visibility: hidden !important;
             display: none !important;
         }
-
-        #MainMenu {
-            visibility: hidden !important;
-            display: none !important;
+                
+        [data-testid="stHeader"] {
+            background-color: transparent !important;
         }
                 
         [data-testid="collapsedControl"] {
-            visibility: visible !important;
             display: block !important;
-            color: inherit !important; /* Garante que o ícone tenha cor visível */
+            visibility: visible !important;
+            position: fixed !important; 
+            top: 10px !important;
+            left: 10px !important;
+            z-index: 999999 !important; 
+            
+            /* Estilo para garantir visibilidade */
+            background-color: rgba(255, 255, 255, 0.5); 
+            border-radius: 8px;
+            padding: 4px;
+            color: black !important; 
         }
-
+                                
+        .stMarkdown p {
+            font-size: 1.1rem; 
+            line-height: 1.6;
+        }
+                
         footer {
             visibility: hidden !important;
-            display: none !important;
             height: 0px !important;
         }
         
-        [data-testid="stFooter"] {
+        [data-testid="stStatusWidget"] {
+            visibility: hidden !important;
+        }
+
+        div[class*="viewerBadge"] {
             display: none !important;
         }
                 
-        div[class*="viewerBadge"] {
-            visibility: hidden !important;
-            display: none !important;
+        .stApp > header + div + div + div {
+             display: none; /* Tenta ocultar wrappers extras do cloud */
         }
-                                
+                
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
