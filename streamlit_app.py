@@ -20,23 +20,30 @@ def aplicar_estilo_responsivo():
         <style> 
         footer {
             visibility: hidden;
-            height: 0px;
+            display: none !important;
         }
-        #MainMenu {
-        visibility: hidden;
+        header {
+            visibility: hidden !important;
         }
-        
+
         [data-testid="stToolbar"] {
             display: none !important;
         }
-
+                
+        [data-testid="stHeaderActionElements"] {
+            display: none !important;
+        }
+        
         [data-testid="collapsedControl"] {
             visibility: visible !important;
             display: block !important;
-        }
-                
-        header[data-testid="stHeader"] {
-        z-index: -1;
+            position: fixed; 
+            top: 15px;       
+            left: 15px;      
+            z-index: 100000; 
+            background-color: white; 
+            border-radius: 50%;
+            padding: 5px;
         }
                 
         .stMarkdown p {
@@ -191,7 +198,7 @@ with st.sidebar:
     st.markdown("**Sobre:**\nChatbot para tirar dúvidas acadêmicas.")
 
 st.title("🤖 Assistente Virtual de Sistemas de Informação - IFMA")
-st.caption("Pergunte sobre disciplinas, regras do curso, equivalências..")
+st.caption("Pergunte sobre disciplinas, regras do curso, equivalências...")
 
 carregar_api_keys()
 retriever = carregar_retriever()
