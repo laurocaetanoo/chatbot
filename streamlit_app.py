@@ -15,43 +15,7 @@ MODELO_EMBEDDING_OPENAI = "text-embedding-3-small"
 MODELO_LLM_RESPONDEDOR = "gemini-2.5-flash"
 MODELO_LLM_LITE = "gemini-2.5-flash-lite" 
 
-def aplicar_estilo_responsivo():
-    st.markdown("""
-        <style> 
-                
-        .stMarkdown p {
-            font-size: 1.1rem; 
-            line-height: 1.6;
-        }
-        
-        @media (max-width: 768px) {
-            
-            h1 {
-                font-size: 1.6rem !important;
-            }
-            
-            .stMarkdown p {
-                font-size: 0.95rem !important; 
-                line-height: 1.5;
-            }
-            
-            .stMarkdown li {
-                font-size: 0.95rem !important;
-            }
 
-            .block-container {
-                padding-top: 2rem !important;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-                padding-bottom: 5rem !important;
-            }
-            
-            .stChatInput textarea {
-                font-size: 16px !important; 
-            }
-        }
-        </style>
-    """, unsafe_allow_html=True)
 
 def carregar_api_keys():
     try:
