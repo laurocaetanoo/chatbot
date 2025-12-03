@@ -30,7 +30,7 @@ def aplicar_estilo_responsivo():
                 font-size: 1.6rem !important;
             }
             
-            header {visibility: hidden;}
+            #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             .stApp > header {display: none;}
             
