@@ -22,30 +22,42 @@ def aplicar_estilo_responsivo():
             visibility: hidden;
             display: none !important;
         }
-        header {
+        [data-testid="stToolbar"] {
             visibility: hidden !important;
+            display: none !important;
         }
 
-        [data-testid="stToolbar"] {
+        [data-testid="stHeaderActionElements"] {
+            visibility: hidden !important;
+            display: none !important;
+        }
+
+        #MainMenu {
+            visibility: hidden !important;
             display: none !important;
         }
                 
-        [data-testid="stHeaderActionElements"] {
-            display: none !important;
-        }
-        
         [data-testid="collapsedControl"] {
             visibility: visible !important;
             display: block !important;
-            position: fixed; 
-            top: 15px;       
-            left: 15px;      
-            z-index: 100000; 
-            background-color: white; 
-            border-radius: 50%;
-            padding: 5px;
+            color: inherit !important; /* Garante que o ícone tenha cor visível */
+        }
+
+        footer {
+            visibility: hidden !important;
+            display: none !important;
+            height: 0px !important;
+        }
+        
+        [data-testid="stFooter"] {
+            display: none !important;
         }
                 
+        div[class*="viewerBadge"] {
+            visibility: hidden !important;
+            display: none !important;
+        }
+                                
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
@@ -198,7 +210,7 @@ with st.sidebar:
     st.markdown("**Sobre:**\nChatbot para tirar dúvidas acadêmicas.")
 
 st.title("🤖 Assistente Virtual de Sistemas de Informação - IFMA")
-st.caption("Pergunte sobre disciplinas, regras do curso, equivalências...")
+st.caption("Pergunte sobre disciplinas, regras do curso, equivalências..")
 
 carregar_api_keys()
 retriever = carregar_retriever()
