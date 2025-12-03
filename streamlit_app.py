@@ -18,20 +18,27 @@ MODELO_LLM_LITE = "gemini-2.5-flash-lite"
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
+        footer {
+            visibility: hidden;
+            height: 0px;
+        }
+        #MainMenu {
+        visibility: hidden;
+        }
         
-        header [data-testid="stToolbar"],
-        header [data-testid="stHeaderActions"],
-        header button[title="Fork this app"],
-        header a[href*="github.com"] {
+        [data-testid="stToolbar"] {
             display: none !important;
         }
-        
-        .stApp a:last-child {
-            display: none;
-        }
 
+        [data-testid="collapsedControl"] {
+            visibility: visible !important;
+            display: block !important;
+        }
+                
+        header[data-testid="stHeader"] {
+        z-index: -1;
+        }
+                
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
