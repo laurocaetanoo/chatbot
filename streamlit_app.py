@@ -122,7 +122,7 @@ def normalizar(s):
 
 st.set_page_config(page_title="Assistente SI - IFMA", page_icon="🤖")
 
-aplicar_estilo_responsivo()
+#aplicar_estilo_responsivo()
 
 with st.sidebar:
     st.header("Configurações")
