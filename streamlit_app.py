@@ -30,9 +30,7 @@ def aplicar_estilo_responsivo():
                 font-size: 1.6rem !important;
             }
             
-            h2 {
-                font-size: 1rem !important;
-            }
+            [data-testid="stToolbar"] {visibility: hidden !important;}
             
             .stMarkdown p {
                 font-size: 0.90rem !important; 
