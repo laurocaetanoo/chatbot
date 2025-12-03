@@ -30,6 +30,10 @@ def aplicar_estilo_responsivo():
                 font-size: 1.6rem !important;
             }
             
+            h2 {
+                font-size: 1rem !important;
+            }
+            
             .stMarkdown p {
                 font-size: 0.90rem !important; 
                 line-height: 1.5;
