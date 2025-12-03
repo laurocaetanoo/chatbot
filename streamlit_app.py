@@ -28,7 +28,6 @@ def aplicar_estilo_responsivo():
             
             h1 {
                 font-size: 1.6rem !important;
-                margin-top: 0.5rem !important;
             }
             
             .stMarkdown p {
@@ -41,7 +40,7 @@ def aplicar_estilo_responsivo():
             }
 
             .block-container {
-                padding-top: 3rem !important;
+                padding-top: 2rem !important;
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
                 padding-bottom: 5rem !important;
