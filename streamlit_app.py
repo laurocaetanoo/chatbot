@@ -30,8 +30,11 @@ def aplicar_estilo_responsivo():
                 font-size: 1.6rem !important;
             }
             
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
+            #MainMenu {visibility: hidden;} /* esconde o menu hamburguer */
+            footer {
+                visibility: hidden !important;
+                display: none !important;
+            }
             .stApp > header {display: none;}
             
             .stMarkdown p {
