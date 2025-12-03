@@ -31,6 +31,7 @@ def aplicar_estilo_responsivo():
             }
             
             footer {visibility: hidden;}
+            .stApp > header {display: none;}
             
             .stMarkdown p {
                 font-size: 0.90rem !important; 
