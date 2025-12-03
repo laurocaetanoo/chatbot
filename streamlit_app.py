@@ -38,6 +38,9 @@ def aplicar_estilo_responsivo():
             [data-testid="stFooter"] {
                 display: none !important;
             }
+            .viewerBadge_container__1QSob {
+                display: none !important;
+            }
             .stApp > header {display: none;}
             
             .stMarkdown p {
