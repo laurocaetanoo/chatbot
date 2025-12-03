@@ -28,10 +28,11 @@ def aplicar_estilo_responsivo():
             display: none !important;
         }
                 
-        [data-testid="stDecoration"],
         [data-testid="stStatusWidget"],
         [data-testid="stStatusWidgetIcon"],
-        [data-testid="stToolbarActions"],
+        [data-testid="stDecoration"],
+        [data-testid="stDecorationContainer"],
+        [data-testid="stSidebarCollapseButton"]:has(svg[focusable="false"][aria-hidden="true"][viewBox="0 0 24 24"]) ~ div [data-testid="stStatusWidget"],
         button[title="View app in Streamlit Community Cloud"],
         button[title="Get help"],
         a[href*="streamlit.io"],
@@ -178,7 +179,6 @@ def normalizar(s):
     return s
 
 st.set_page_config(page_title="Assistente SI - IFMA", page_icon="🤖")
-st.set_option("client.toolbarMode", "viewer")
 
 aplicar_estilo_responsivo()
 
@@ -192,7 +192,7 @@ with st.sidebar:
     st.markdown("**Sobre:**\nChatbot para tirar dúvidas acadêmicas.")
 
 st.title("🤖 Assistente Virtual de Sistemas de Informação - IFMA")
-st.caption("Pergunte sobre disciplinas, regras do curso, equivalências..")
+st.caption("Pergunte sobre disciplinas, regras do curso, equivalências...")
 
 carregar_api_keys()
 retriever = carregar_retriever()
