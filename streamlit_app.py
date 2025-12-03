@@ -35,6 +35,9 @@ def aplicar_estilo_responsivo():
                 visibility: hidden !important;
                 display: none !important;
             }
+            [data-testid="stFooter"] {
+                display: none !important;
+            }
             .stApp > header {display: none;}
             
             .stMarkdown p {
