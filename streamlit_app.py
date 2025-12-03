@@ -18,58 +18,6 @@ MODELO_LLM_LITE = "gemini-2.5-flash-lite"
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
-        [data-testid="stDecoration"] {
-            display: none !important;
-        }
-        
-        [data-testid="stToolbar"] {
-            display: none !important;
-        }
-        
-        [data-testid="stHeaderActionElements"] {
-            display: none !important;
-        }
-                
-        [data-testid="stHeader"] {
-            background-color: transparent !important;
-        }
-                
-        [data-testid="collapsedControl"] {
-            display: block !important;
-            visibility: visible !important;
-            position: fixed !important; 
-            top: 10px !important;
-            left: 10px !important;
-            z-index: 999999 !important; 
-            
-            /* Estilo para garantir visibilidade */
-            background-color: rgba(255, 255, 255, 0.5); 
-            border-radius: 8px;
-            padding: 4px;
-            color: black !important; 
-        }
-                                
-        .stMarkdown p {
-            font-size: 1.1rem; 
-            line-height: 1.6;
-        }
-                
-        footer {
-            visibility: hidden !important;
-            height: 0px !important;
-        }
-        
-        [data-testid="stStatusWidget"] {
-            visibility: hidden !important;
-        }
-
-        div[class*="viewerBadge"] {
-            display: none !important;
-        }
-                
-        .stApp > header + div + div + div {
-             display: none; /* Tenta ocultar wrappers extras do cloud */
-        }
                 
         .stMarkdown p {
             font-size: 1.1rem; 
@@ -223,7 +171,7 @@ with st.sidebar:
     st.markdown("**Sobre:**\nChatbot para tirar dúvidas acadêmicas.")
 
 st.title("🤖 Assistente Virtual de Sistemas de Informação - IFMA")
-st.caption("Pergunte sobre disciplinas, regras do curso, equivalências..")
+st.caption("Pergunte sobre disciplinas, regras do curso, equivalências...")
 
 carregar_api_keys()
 retriever = carregar_retriever()
