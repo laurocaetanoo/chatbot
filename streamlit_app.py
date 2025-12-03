@@ -21,10 +21,21 @@ def aplicar_estilo_responsivo():
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         
-        [data-testid="stActionButtonIcon"] {
+        header [data-testid="stToolbar"],
+        header [data-testid="stHeaderActions"],
+        header button[title="Fork this app"],
+        header a[href*="github.com"] {
             display: none !important;
         }
-        [data-testid="stToolbar"] {
+                
+        [data-testid="stDecoration"],
+        [data-testid="stStatusWidget"],
+        [data-testid="stStatusWidgetIcon"],
+        [data-testid="stToolbarActions"],
+        button[title="View app in Streamlit Community Cloud"],
+        button[title="Get help"],
+        a[href*="streamlit.io"],
+        a[href*="streamlit.app"] {
             display: none !important;
         }
 
@@ -181,7 +192,7 @@ with st.sidebar:
     st.markdown("**Sobre:**\nChatbot para tirar dúvidas acadêmicas.")
 
 st.title("🤖 Assistente Virtual de Sistemas de Informação - IFMA")
-st.caption("Pergunte sobre disciplinas, regras do curso, equivalências...")
+st.caption("Pergunte sobre disciplinas, regras do curso, equivalências..")
 
 carregar_api_keys()
 retriever = carregar_retriever()
