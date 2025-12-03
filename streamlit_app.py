@@ -18,26 +18,15 @@ MODELO_LLM_LITE = "gemini-2.5-flash-lite"
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
-        footer {visibility: hidden !important; height: 0px !important;}
-        .stFooter {display: none !important;}
-        a[href^="https://streamlit.io/cloud"] {display: none !important;}
-        div[class*="viewerBadge"] {display: none !important;}
-                
-        [data-testid="stToolbar"] {
-            right: 2rem; 
-            visibility: hidden !important; 
-            display: none !important;
-        }   
-        [data-testid="stSidebarNav"] {
-            visibility: visible !important;
-            display: block !important;
-        }
-        [data-testid="collapsedControl"] {
-            visibility: visible !important;
-            display: block !important;
-            z-index: 99999 !important; 
-        }
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
         
+        [data-testid="stActionButtonIcon"] {
+            display: none !important;
+        }
+        [data-testid="stToolbar"] {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
@@ -178,6 +167,7 @@ def normalizar(s):
     return s
 
 st.set_page_config(page_title="Assistente SI - IFMA", page_icon="🤖")
+st.set_option("client.toolbarMode", "viewer")
 
 aplicar_estilo_responsivo()
 
