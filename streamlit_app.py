@@ -25,6 +25,13 @@ def aplicar_estilo_responsivo():
             visibility: hidden !important;
             height: 0px !important;
         }
+        
+        [data-testid="stSidebarCollapsedControl"] {
+            visibility: visible !important;
+            display: block !important;
+            z-index: 999999 !important; /* Garante que fique acima de qualquer sobreposição */
+            color: inherit !important; /* Garante que a cor do ícone se mantenha visível */
+        }
 
 
         .stMarkdown p {
