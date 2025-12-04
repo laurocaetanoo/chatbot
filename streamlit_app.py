@@ -29,6 +29,12 @@ def aplicar_estilo_responsivo():
         a[href^="https://streamlit.io/cloud"] {display: none !important;}
         div[class*="viewerBadge"] {display: none !important;}
                 
+        [data-testid="stToolbar"] {
+            right: 2rem; /* Move para longe ou esconde */
+            visibility: hidden !important; 
+            display: none !important;
+        }
+                
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
