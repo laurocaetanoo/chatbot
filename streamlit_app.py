@@ -35,6 +35,11 @@ def aplicar_estilo_responsivo():
             display: none !important;
         }
                 
+        [data-testid="stSidebarNav"] {
+            visibility: visible !important;
+            display: block !important;
+        }
+                
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
