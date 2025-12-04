@@ -36,6 +36,12 @@ def aplicar_estilo_responsivo():
             z-index: 999999 !important; /* Garante que fique acima de qualquer sobreposição */
             color: inherit !important; /* Garante que a cor do ícone se mantenha visível */
         }
+        footer {
+            visibility: hidden !important;
+        }
+        [data-testid="stStatusWidget"] {
+            visibility: hidden !important;
+        }
 
 
         .stMarkdown p {
