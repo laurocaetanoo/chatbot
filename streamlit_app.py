@@ -21,26 +21,16 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
-       [data-testid="stToolbar"] {
-            visibility: hidden !important;
-            height: 0px !important;
+        header[data-testid="stHeader"] {
+            background: transparent !important;
         }
-                
-        [data-testid="stDecoration"] {
+        [data-testid="stToolbar"] {
             display: none !important;
         }
-        
         [data-testid="stSidebarCollapsedControl"] {
-            visibility: visible !important;
             display: block !important;
-            z-index: 999999 !important; /* Garante que fique acima de qualquer sobreposição */
-            color: inherit !important; /* Garante que a cor do ícone se mantenha visível */
-        }
-        footer {
-            visibility: hidden !important;
-        }
-        [data-testid="stStatusWidget"] {
-            visibility: hidden !important;
+            visibility: visible !important;
+            color: #333333 !important; /* Cor cinza escuro para garantir contraste */
         }
 
 
