@@ -23,27 +23,23 @@ def aplicar_estilo_responsivo():
     
         header[data-testid="stHeader"] {
             background: transparent !important;
-            /* Garante que o cabeçalho tenha altura para o botão caber */
-            min-height: 3rem !important; 
         }
         
-        [data-testid="stToolbar"] {
+        [data-testid="stToolbar"] button {
             display: none !important;
         }
-        header[data-testid="stHeader"] a[href*="github"] {
+        [data-testid="stToolbar"] a {
             display: none !important;
         }
-        header[data-testid="stHeader"] a:not([data-testid="stSidebarCollapsedControl"]) {
+        header[data-testid="stHeader"] > a {
             display: none !important;
         }
+        
         [data-testid="stSidebarCollapsedControl"] {
             display: block !important;
             visibility: visible !important;
-            color: #31333F !important; /* Cor cinza escuro padrão */
-            z-index: 1000000 !important; /* Acima de tudo */
-        }
-        [data-testid="stSidebarCollapsedControl"] svg {
-            fill: #31333F !important;
+            color: #31333F !important; /* Cor escura */
+            z-index: 999999 !important;
         }
 
         .stMarkdown p {
