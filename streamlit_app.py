@@ -28,7 +28,16 @@ def aplicar_estilo_responsivo():
 
         [data-testid="stSidebarNav"] {
             display: block !important;
-        }    
+        }  
+        footer {
+        visibility: hidden !important;
+    }
+
+        [data-testid="stStatusWidget"] {
+            visibility: hidden !important;
+        }
+
+
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
