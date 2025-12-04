@@ -29,7 +29,12 @@ def aplicar_estilo_responsivo():
             display: none !important;
         }      
         
-                
+        [data-testid="stSidebarCollapsedControl"] {
+            visibility: visible !important;
+            display: block !important;
+            color: #000000 !important; /* Força cor preta para garantir contraste */
+            z-index: 999999 !important; /* Garante que fique acima de tudo */
+        }       
          
 
         .stMarkdown p {
