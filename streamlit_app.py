@@ -32,6 +32,12 @@ def aplicar_estilo_responsivo():
             visibility: visible !important;
             color: #333333 !important; /* Cor cinza escuro para garantir contraste */
         }
+        @media (max-width: 768px) {
+            [data-testid="stSidebarCollapsedControl"] {
+                z-index: 99999 !important;
+                position: relative !important;
+            }
+        }
 
 
         .stMarkdown p {
