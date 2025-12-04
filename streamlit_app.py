@@ -21,29 +21,47 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
     
-        [data-testid="stToolbar"] {
-            visibility: hidden !important; /* Torna invisível */
-            pointer-events: none !important; /* Impede cliques nos botões invisíveis */
-            /* IMPORTANTE: Não usamos display:none nem height:0 aqui. 
-               Deixamos ela ocupar espaço para manter o cabeçalho em pé. */
-        }
-        header[data-testid="stHeader"] > a {
-            visibility: hidden !important;
-            pointer-events: none !important;
-        }
-        [data-testid="stSidebarCollapsedControl"] {
-            visibility: visible !important;
-            pointer-events: auto !important; /* Garante que o clique funcione */
-            color: #31333F !important; /* Cor escura para contraste */
-            display: block !important;
-            z-index: 999999 !important;
-        }
-        
         header[data-testid="stHeader"] {
             background: transparent !important;
         }
+
+        /* --- 2. REMOÇÃO CIRÚRGICA DE ITENS (Sem tocar na barra principal) --- */
+        
+        /* Oculta o botão de menu (três pontinhos) DENTRO da toolbar */
+        [data-testid="stToolbar"] button {
+            display: none !important;
+        }
+
+        /* Oculta os links (GitHub) DENTRO da toolbar */
+        [data-testid="stToolbar"] a {
+            display: none !important;
+        }
+
+        /* Oculta o ícone de decoração (linha colorida) */
         [data-testid="stDecoration"] {
-            visibility: hidden !important;
+            display: none !important;
+        }
+
+        /* --- 3. O "FORK" E GITHUB DO STREAMLIT CLOUD --- */
+        /* O Streamlit Cloud injeta links soltos (<a>) no cabeçalho. 
+           Vamos ocultá-los, mas usamos :not() para proteger o botão do sidebar
+           caso ele seja renderizado como link em alguma versão móvel. */
+        
+        header[data-testid="stHeader"] > a:not([data-testid="stSidebarCollapsedControl"]) {
+            display: none !important;
+        }
+        
+        /* Reforço para ocultar qualquer elemento com link "github" no cabeçalho */
+        header[data-testid="stHeader"] a[href*="github"] {
+            display: none !important;
+        }
+
+        /* --- 4. PROTEÇÃO DO BOTÃO DA SIDEBAR (>>) --- */
+        [data-testid="stSidebarCollapsedControl"] {
+            display: block !important;
+            visibility: visible !important;
+            color: #31333F !important;
+            z-index: 999999 !important;
         }
 
         .stMarkdown p {
