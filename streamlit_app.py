@@ -19,8 +19,11 @@ def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
           
-        #MainMenu {visibility: hidden; display: none;} /* esconde o menu hamburguer */
-                        
+        /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
+
+        .stAppHeader [data-testid="stToolbar"] a {
+            display: none !important;
+        }    
                 
         .stMarkdown p {
             font-size: 1.1rem; 
