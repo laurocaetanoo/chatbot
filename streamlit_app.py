@@ -30,6 +30,10 @@ def aplicar_estilo_responsivo():
                 font-size: 1.6rem !important;
             }
             
+            [data-testid="stToolbar"] {
+                visibility: hidden;
+                display: none;
+        }   
             #MainMenu {visibility: hidden; display: none;} /* esconde o menu hamburguer */
             [data-testid="stDecoration"] {
                 display: none;
