@@ -27,6 +27,9 @@ def aplicar_estilo_responsivo():
             min-height: 3rem !important; 
         }
         
+        [data-testid="stToolbar"] {
+            display: none !important;
+        }
         header[data-testid="stHeader"] a[href*="github"] {
             display: none !important;
         }
