@@ -20,6 +20,11 @@ def aplicar_estilo_responsivo():
         <style> 
           
         #MainMenu {visibility: hidden; display: none;} /* esconde o menu hamburguer */
+        
+        footer {visibility: hidden !important; height: 0px !important;}
+        
+        /* Esconde o container específico do rodapé do Streamlit */
+        .stFooter {display: none !important;}
                 
         .stMarkdown p {
             font-size: 1.1rem; 
