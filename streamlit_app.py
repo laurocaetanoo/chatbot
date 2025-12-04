@@ -20,20 +20,6 @@ def aplicar_estilo_responsivo():
         <style> 
           
         #MainMenu {visibility: hidden; display: none;} /* esconde o menu hamburguer */
-        [data-testid="stDecoration"] {
-            display: none;
-        }
-        footer {
-            visibility: hidden !important;
-            display: none !important;
-        }
-        [data-testid="stFooter"] {
-           display: none !important;
-        }
-        .viewerBadge_container__1QSob {
-            display: none !important;
-        }
-        .stApp > header {display: none;}
                 
         .stMarkdown p {
             font-size: 1.1rem; 
