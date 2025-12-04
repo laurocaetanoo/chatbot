@@ -21,20 +21,9 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
-        .stAppHeader [data-testid="stToolbar"] a {
-            display: none !important;
-        }
-        .stAppHeader [data-testid="stToolbar"] button { display: none !important; }    
-
-        [data-testid="stSidebarNav"] {
-            display: block !important;
-        }  
-        footer {
-        visibility: hidden !important;
-    }
-
-        [data-testid="stStatusWidget"] {
+       [data-testid="stToolbar"] {
             visibility: hidden !important;
+            height: 0px !important;
         }
 
 
