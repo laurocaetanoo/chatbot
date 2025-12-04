@@ -27,7 +27,10 @@ def aplicar_estilo_responsivo():
         }
         header[data-testid="stHeader"] a {
             display: none !important;
-        }      
+        } 
+        [data-testid="stDecoration"] {
+            display: none !important;
+        }     
         
         [data-testid="stSidebarCollapsedControl"] {
             visibility: visible !important;
