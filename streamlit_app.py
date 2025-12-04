@@ -26,6 +26,9 @@ def aplicar_estilo_responsivo():
         /* Esconde o container específico do rodapé do Streamlit */
         .stFooter {display: none !important;}
                 
+        a[href^="https://streamlit.io/cloud"] {display: none !important;}
+        div[class*="viewerBadge"] {display: none !important;}
+                
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
