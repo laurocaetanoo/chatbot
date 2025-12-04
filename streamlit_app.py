@@ -25,7 +25,10 @@ def aplicar_estilo_responsivo():
             display: none !important;
         }
         .stAppHeader [data-testid="stToolbar"] button { display: none !important; }    
-                
+
+        [data-testid="stSidebarNav"] {
+            display: block !important;
+        }    
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
