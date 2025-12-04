@@ -20,31 +20,7 @@ def aplicar_estilo_responsivo():
         <style> 
           
         #MainMenu {visibility: hidden; display: none;} /* esconde o menu hamburguer */
-        
-        footer {visibility: hidden !important; height: 0px !important;}
-        
-        /* Esconde o container específico do rodapé do Streamlit */
-        .stFooter {display: none !important;}
-                
-        a[href^="https://streamlit.io/cloud"] {display: none !important;}
-        div[class*="viewerBadge"] {display: none !important;}
-                
-        [data-testid="stToolbar"] {
-            right: 2rem; /* Move para longe ou esconde */
-            visibility: hidden !important; 
-            display: none !important;
-        }
-                
-        [data-testid="stSidebarNav"] {
-            visibility: visible !important;
-            display: block !important;
-        }
-        
-        [data-testid="collapsedControl"] {
-            visibility: visible !important;
-            display: block !important;
-            z-index: 99999 !important; /* Garante que fique por cima de tudo */
-        }
+                        
                 
         .stMarkdown p {
             font-size: 1.1rem; 
