@@ -18,11 +18,7 @@ MODELO_LLM_LITE = "gemini-2.5-flash-lite"
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
-        
-        [data-testid="stToolbar"] {
-                visibility: hidden;
-                display: none;
-        }   
+          
         #MainMenu {visibility: hidden; display: none;} /* esconde o menu hamburguer */
         [data-testid="stDecoration"] {
             display: none;
