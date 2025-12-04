@@ -33,6 +33,12 @@ def aplicar_estilo_responsivo():
         header[data-testid="stHeader"] a:not([data-testid="stSidebarCollapsedControl"]) {
             display: none !important;
         }
+        [data-testid="stSidebarCollapsedControl"] {
+            display: block !important;
+            visibility: visible !important;
+            color: #31333F !important; /* Cor cinza escuro padrão */
+            z-index: 1000000 !important; /* Acima de tudo */
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
