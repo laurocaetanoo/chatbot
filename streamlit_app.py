@@ -39,6 +39,9 @@ def aplicar_estilo_responsivo():
             color: #31333F !important; /* Cor cinza escuro padrão */
             z-index: 1000000 !important; /* Acima de tudo */
         }
+        [data-testid="stSidebarCollapsedControl"] svg {
+            fill: #31333F !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
