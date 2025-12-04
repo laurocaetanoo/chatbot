@@ -21,25 +21,11 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
     
-        header[data-testid="stHeader"] {
-            background: transparent !important;
-        }
-        
-        [data-testid="stToolbar"] button {
-            display: none !important;
-        }
-        [data-testid="stToolbar"] a {
-            display: none !important;
-        }
-        header[data-testid="stHeader"] > a {
-            display: none !important;
-        }
-        
-        [data-testid="stSidebarCollapsedControl"] {
-            display: block !important;
-            visibility: visible !important;
-            color: #31333F !important; /* Cor escura */
-            z-index: 999999 !important;
+        [data-testid="stToolbar"] {
+            visibility: hidden !important; /* Torna invisível */
+            pointer-events: none !important; /* Impede cliques nos botões invisíveis */
+            /* IMPORTANTE: Não usamos display:none nem height:0 aqui. 
+               Deixamos ela ocupar espaço para manter o cabeçalho em pé. */
         }
 
         .stMarkdown p {
