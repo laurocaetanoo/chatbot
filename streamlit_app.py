@@ -38,6 +38,13 @@ def aplicar_estilo_responsivo():
             display: block !important;
             z-index: 999999 !important;
         }
+        
+        header[data-testid="stHeader"] {
+            background: transparent !important;
+        }
+        [data-testid="stDecoration"] {
+            visibility: hidden !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
