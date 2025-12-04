@@ -25,7 +25,16 @@ def aplicar_estilo_responsivo():
             visibility: hidden !important;
             display: none !important;
         }
+                
+        footer {
+            visibility: hidden !important;
+            display: none !important;
+        }
 
+        /* Oculta widgets de status no canto inferior */
+        [data-testid="stStatusWidget"] {
+            visibility: hidden !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
