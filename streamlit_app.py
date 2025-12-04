@@ -25,6 +25,10 @@ def aplicar_estilo_responsivo():
             visibility: hidden !important;
             height: 0px !important;
         }
+                
+        [data-testid="stDecoration"] {
+            display: none !important;
+        }
         
         [data-testid="stSidebarCollapsedControl"] {
             visibility: visible !important;
