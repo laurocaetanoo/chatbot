@@ -23,29 +23,8 @@ def aplicar_estilo_responsivo():
     
         header[data-testid="stHeader"] {
             background: transparent !important;
-            z-index: 1 !important; /* Nível baixo para não cobrir o conteúdo */
-        }
-        [data-testid="stToolbar"] {
-            display: none !important; 
-        }
-        header[data-testid="stHeader"] > a {
-            display: none !important;
-        }
-        [data-testid="stDecoration"] {
-            display: none !important;
-        }
-        [data-testid="stSidebarCollapsedControl"] {
-            display: block !important;
-            visibility: visible !important;
-            position: fixed !important;
-            top: 10px !important;
-            left: 10px !important;
-            z-index: 999999 !important; /* Camada mais alta possível */
-            color: #000000 !important; /* Texto Preto */
-            background-color: rgba(255, 255, 255, 0.8) !important; /* Fundo para contraste */
-            border-radius: 50% !important; /* Deixa redondinho */
-            padding: 5px !important;
-            width: auto !important;
+            /* Garante que o cabeçalho tenha altura para o botão caber */
+            min-height: 3rem !important; 
         }
         
 
