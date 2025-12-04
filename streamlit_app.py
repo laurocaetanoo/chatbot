@@ -23,7 +23,8 @@ def aplicar_estilo_responsivo():
 
         .stAppHeader [data-testid="stToolbar"] a {
             display: none !important;
-        }    
+        }
+        .stAppHeader [data-testid="stToolbar"] button { display: none !important; }    
                 
         .stMarkdown p {
             font-size: 1.1rem; 
