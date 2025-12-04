@@ -39,6 +39,12 @@ def aplicar_estilo_responsivo():
             visibility: visible !important;
             display: block !important;
         }
+        
+        [data-testid="collapsedControl"] {
+            visibility: visible !important;
+            display: block !important;
+            z-index: 99999 !important; /* Garante que fique por cima de tudo */
+        }
                 
         .stMarkdown p {
             font-size: 1.1rem; 
