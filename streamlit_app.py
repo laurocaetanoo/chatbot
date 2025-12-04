@@ -25,7 +25,9 @@ def aplicar_estilo_responsivo():
             visibility: hidden !important; /* Torna invisível, mas não remove do layout */
             height: 0px !important;       /* Evita que ocupe espaço vertical desnecessário */
         }
-                
+        header[data-testid="stHeader"] a {
+            display: none !important;
+        }      
         
                 
          
