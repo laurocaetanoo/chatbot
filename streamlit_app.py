@@ -38,7 +38,9 @@ def aplicar_estilo_responsivo():
             color: #000000 !important; /* Força cor preta para garantir contraste */
             z-index: 999999 !important; /* Garante que fique acima de tudo */
         }       
-         
+        header[data-testid="stHeader"] {
+            background: transparent !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
