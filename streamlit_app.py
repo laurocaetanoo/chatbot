@@ -35,6 +35,18 @@ def aplicar_estilo_responsivo():
         [data-testid="stStatusWidget"] {
             visibility: hidden !important;
         }
+                
+        [data-testid="stSidebarCollapsedControl"] {
+            display: block !important;
+            visibility: visible !important;
+            position: fixed !important; /* Fixa na tela, ignora o cabeçalho oculto */
+            top: 15px !important;       /* Distância do topo */
+            left: 15px !important;      /* Distância da esquerda */
+            z-index: 1000002 !important; /* Garante que fique EM CIMA de tudo */
+            color: #31333F !important;   /* Força cor escura (padrão streamlit) */
+            background-color: transparent !important;
+            width: auto !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
