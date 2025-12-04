@@ -30,6 +30,9 @@ def aplicar_estilo_responsivo():
         header[data-testid="stHeader"] a[href*="github"] {
             display: none !important;
         }
+        header[data-testid="stHeader"] a:not([data-testid="stSidebarCollapsedControl"]) {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
