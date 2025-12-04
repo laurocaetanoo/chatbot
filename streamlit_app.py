@@ -26,9 +26,7 @@ def aplicar_estilo_responsivo():
             /* Garante que o cabeçalho tenha altura para o botão caber */
             min-height: 3rem !important; 
         }
-        [data-testid="stToolbar"] {
-            display: none !important;
-        }
+        
         header[data-testid="stHeader"] a[href*="github"] {
             display: none !important;
         }
