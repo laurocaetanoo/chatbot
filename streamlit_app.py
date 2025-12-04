@@ -21,7 +21,10 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
-        
+        [data-testid="stToolbar"] {
+            visibility: hidden !important;
+            display: none !important;
+        }
 
 
         .stMarkdown p {
