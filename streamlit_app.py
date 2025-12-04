@@ -30,7 +30,7 @@ def aplicar_estilo_responsivo():
                 font-size: 1.6rem !important;
             }
             
-            #MainMenu {visibility: hidden;} /* esconde o menu hamburguer */
+            #MainMenu {visibility: hidden; display: none;} /* esconde o menu hamburguer */
             [data-testid="stDecoration"] {
                 display: none;
             }
