@@ -25,6 +25,10 @@ def aplicar_estilo_responsivo():
             visibility: hidden !important;
             display: none !important;
         }
+        [data-testid="stDecoration"] {
+            visibility: hidden !important;
+            display: none !important;
+        }
                 
         footer {
             visibility: hidden !important;
