@@ -22,35 +22,13 @@ def aplicar_estilo_responsivo():
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
         [data-testid="stToolbar"] {
-            visibility: hidden !important;
-            display: none !important;
-        }
-        [data-testid="stDecoration"] {
-            visibility: hidden !important;
-            display: none !important;
+            visibility: hidden !important; /* Torna invisível, mas não remove do layout */
+            height: 0px !important;       /* Evita que ocupe espaço vertical desnecessário */
         }
                 
-        footer {
-            visibility: hidden !important;
-            display: none !important;
-        }
-
-        /* Oculta widgets de status no canto inferior */
-        [data-testid="stStatusWidget"] {
-            visibility: hidden !important;
-        }
+        
                 
-        [data-testid="stSidebarCollapsedControl"] {
-            display: block !important;
-            visibility: visible !important;
-            position: fixed !important; /* Fixa na tela, ignora o cabeçalho oculto */
-            top: 15px !important;       /* Distância do topo */
-            left: 15px !important;      /* Distância da esquerda */
-            z-index: 1000002 !important; /* Garante que fique EM CIMA de tudo */
-            color: #31333F !important;   /* Força cor escura (padrão streamlit) */
-            background-color: transparent !important;
-            width: auto !important;
-        }
+         
 
         .stMarkdown p {
             font-size: 1.1rem; 
