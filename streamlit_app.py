@@ -31,6 +31,9 @@ def aplicar_estilo_responsivo():
             }
             
             #MainMenu {visibility: hidden;} /* esconde o menu hamburguer */
+            [data-testid="stDecoration"] {
+                display: none;
+            }
             footer {
                 visibility: hidden !important;
                 display: none !important;
