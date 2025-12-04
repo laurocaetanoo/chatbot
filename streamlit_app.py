@@ -27,6 +27,17 @@ def aplicar_estilo_responsivo():
             /* IMPORTANTE: Não usamos display:none nem height:0 aqui. 
                Deixamos ela ocupar espaço para manter o cabeçalho em pé. */
         }
+        header[data-testid="stHeader"] > a {
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] {
+            visibility: visible !important;
+            pointer-events: auto !important; /* Garante que o clique funcione */
+            color: #31333F !important; /* Cor escura para contraste */
+            display: block !important;
+            z-index: 999999 !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
