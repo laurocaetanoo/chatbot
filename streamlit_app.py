@@ -24,6 +24,9 @@ def aplicar_estilo_responsivo():
         header[data-testid="stHeader"] {
             background: transparent !important;
         }
+        [data-testid="stDecoration"] {
+            display: none !important;
+        }
         [data-testid="stToolbar"] {
             display: none !important;
         }
