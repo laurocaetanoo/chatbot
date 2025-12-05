@@ -161,7 +161,8 @@ def normalizar(s):
     s = re.sub(r'[^\w\s]', '', s)
     return s
 
-st.set_page_config(page_title="Assistente SI - IFMA", page_icon="🤖", menu_items={
+st.set_page_config(page_title="Assistente SI - IFMA", page_icon="🤖", layout="wide",
+    initial_sidebar_state="expanded", menu_items={
         'Get Help': None,  # Remove link de ajuda
         'Report a bug': None,  # Remove link de reportar bug
         'About': None  # Remove link "About"
