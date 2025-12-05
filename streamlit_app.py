@@ -37,6 +37,9 @@ def aplicar_estilo_responsivo():
             display: none !important;
             visibility: hidden !important;
         }
+        ._container_gzau3_1 {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
