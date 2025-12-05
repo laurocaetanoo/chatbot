@@ -45,6 +45,9 @@ def aplicar_estilo_responsivo():
          [data-testid="stToolbar"] {
             display: none !important;
         }
+        .stApp > header ~ div:first-of-type {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
