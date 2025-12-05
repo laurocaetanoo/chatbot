@@ -58,6 +58,15 @@ def aplicar_estilo_responsivo():
             display: none !important;
             opacity: 0 !important;
         }
+        [title*="Streamlit"],
+        [aria-label*="Streamlit"] {
+            display: none !important;
+        }
+        
+        /* Remove o container do footer se existir */
+        .stApp > footer {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
