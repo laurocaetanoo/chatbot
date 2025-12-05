@@ -56,7 +56,7 @@ def aplicar_estilo_responsivo():
 
             .block-container {
                 padding-top: 1rem !important;
-                padding-left: 1rem !important;
+                padding-left: 0.5rem !important;
                 padding-right: 0.5rem !important;
                 padding-bottom: 2rem !important;
             }
