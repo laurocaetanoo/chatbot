@@ -39,6 +39,9 @@ def aplicar_estilo_responsivo():
         button[title="View app source"] {
             display: none !important;
         }
+        a[href*="github.com"] {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
