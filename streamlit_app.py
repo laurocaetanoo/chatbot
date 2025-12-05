@@ -33,23 +33,11 @@ def aplicar_estilo_responsivo():
             display: none !important;
         }
 
-        /* Esconder link do Streamlit no rodapé e cabeçalho */
-        a[href="https://streamlit.io/cloud"] {
-            display: none !important;
-            visibility: hidden !important;
-            height: 0 !important;
-        }
-                [class*="viewerBadge"] {
+        /* Esconder link do Streamlit no rodapé */
+        img[data-testid="appCreatorAvatar"] {
             display: none !important;
         }
-
-        /* Oculta o rodapé padrão "Made with Streamlit" se ele aparecer */
-        footer {
-            display: none !important;
-        }
-        [data-testid="stStatusWidget"] {
-            display: none !important;
-        }
+        
 
         .stMarkdown p {
             font-size: 1.1rem; 
