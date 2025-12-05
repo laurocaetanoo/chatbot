@@ -42,7 +42,15 @@ def aplicar_estilo_responsivo():
         div:has(img[alt="App Creator Avatar"]) {
             display: none !important;
         }
+        a[href*="share.streamlit.io/user/"] {
+            display: none !important;
+        }
 
+        /* ALVO 4: Pelo nome da classe que começa com "_profileContainer" 
+           (O símbolo ^= significa "começa com") */
+        div[class^="_profileContainer"] {
+            display: none !important;
+        }
         
 
         .stMarkdown p {
