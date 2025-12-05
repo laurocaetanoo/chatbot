@@ -51,7 +51,9 @@ def aplicar_estilo_responsivo():
         div[class^="_profileContainer"] {
             display: none !important;
         }
-        
+        div[class^="_viewerBadge"] {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
