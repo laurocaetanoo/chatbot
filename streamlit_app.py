@@ -37,6 +37,18 @@ def aplicar_estilo_responsivo():
         a[href*="streamlit.io"] {
             display: none !important;
         }
+        /* Método 2: Remove pela classe específica */
+        ._container_gzau3_1,
+        ._viewerBadge_nim44_23 {
+            display: none !important;
+        }
+        
+        /* Método 3: Remove o footer completo */
+        footer {
+            visibility: hidden !important;
+            display: none !important;
+            height: 0px !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
