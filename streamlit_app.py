@@ -54,11 +54,18 @@ def aplicar_estilo_responsivo():
         div[class^="_viewerBadge"] {
             display: none !important;
         }
+        footer { 
+            display: none !important; 
+        }
+        [data-testid="stStatusWidget"] { 
+            display: none !important; 
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
         }
+                
         
         @media (max-width: 768px) {
             
