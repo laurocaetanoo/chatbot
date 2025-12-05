@@ -34,18 +34,12 @@ def aplicar_estilo_responsivo():
         }
 
         /* Esconder link do Streamlit no rodapé e cabeçalho */
-        /* Método nuclear: Remove TUDO do footer */
-        .stApp footer,
-        .stApp > div:last-child,
-        .stApp > a:last-child,
-        .stApp > div > div:last-child {
+        a[href="https://streamlit.io/cloud"] {
             display: none !important;
+            visibility: hidden !important;
             height: 0 !important;
-            width: 0 !important;
-            overflow: hidden !important;
-            position: absolute !important;
-            left: -9999px !important;
         }
+        
 
         .stMarkdown p {
             font-size: 1.1rem; 
