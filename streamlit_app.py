@@ -39,7 +39,8 @@ def aplicar_estilo_responsivo():
         a[href*="github.com"] {
             display: none !important;
         }
-
+        #MainMenu {visibility: hidden !important;}
+        footer {visibility: hidden !important;}
 
         .stMarkdown p {
             font-size: 1.1rem; 
