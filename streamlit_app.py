@@ -45,6 +45,8 @@ def aplicar_estilo_responsivo():
         a[href*="share.streamlit.io/user/laurocaetanoo"] {
             display: none !important;
         }
+        footer { display: none !important; }
+        [data-testid="stStatusWidget"] { display: none !important; }
 
         .stMarkdown p {
             font-size: 1.1rem; 
