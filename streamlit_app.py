@@ -35,6 +35,7 @@ def aplicar_estilo_responsivo():
 
         /* Remove a toolbar */
         .stToolbar {display: none;}
+        .stDeployButton {display: none;}
 
         .stMarkdown p {
             font-size: 1.1rem; 
