@@ -39,6 +39,9 @@ def aplicar_estilo_responsivo():
         img[alt="App Creator Avatar"] {
             display: none !important;
         }
+        div:has(img[alt="App Creator Avatar"]) {
+            display: none !important;
+        }
 
         
 
