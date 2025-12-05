@@ -64,6 +64,13 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
+        .stDeployButton, 
+        [data-testid="stDeployButton"],
+        button[title*="github"],
+        button[title*="source"],
+        a[href*="github"] {
+            display: none !important;
+        }
         
 
         .stMarkdown p {
