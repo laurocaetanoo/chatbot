@@ -36,6 +36,9 @@ def aplicar_estilo_responsivo():
         div[data-testid="stToolbarActionButton"]:has(span[data-testid="stToolbarActionButtonLabel"]) {
             display: none !important;
         }
+         div[data-testid="stToolbarActionButton"]:has(div[data-testid="stToolbarActionButtonIcon"]) {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
