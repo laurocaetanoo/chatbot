@@ -33,6 +33,11 @@ def aplicar_estilo_responsivo():
             display: none !important;
         }
 
+        a[href*="streamlit.io"] {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
         .stMarkdown p {
             font-size: 1.1rem; 
             line-height: 1.6;
