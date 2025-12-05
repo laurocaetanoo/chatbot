@@ -44,6 +44,9 @@ def aplicar_estilo_responsivo():
             display: none !important;
             visibility: hidden !important;
         }
+        [href*="streamlit"] {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
