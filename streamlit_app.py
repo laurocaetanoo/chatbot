@@ -24,6 +24,9 @@ def aplicar_estilo_responsivo():
         .stApp > header {
             display: none;
         }
+        #MainMenu {
+            visibility: hidden;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
