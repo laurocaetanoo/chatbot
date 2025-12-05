@@ -47,7 +47,7 @@ def aplicar_estilo_responsivo():
         @media (max-width: 768px) {
             
             h1 {
-                font-size: 1.7rem !important;
+                font-size: 1.8rem !important;
             }
             p {
                 font-size: 1rem !important;
