@@ -20,7 +20,10 @@ def aplicar_estilo_responsivo():
         <style> 
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
-    
+
+        .stApp > header {
+            display: none;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
