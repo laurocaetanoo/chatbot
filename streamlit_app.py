@@ -50,6 +50,9 @@ def aplicar_estilo_responsivo():
         [class*="viewerBadge"] {
             display: none !important;
         }
+                div._link_gzau3_10 {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
