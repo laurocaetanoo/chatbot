@@ -36,6 +36,9 @@ def aplicar_estilo_responsivo():
         .stDeployButton {
             display: none !important;
         }
+        button[title="View app source"] {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
