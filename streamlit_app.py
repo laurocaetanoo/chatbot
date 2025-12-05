@@ -39,6 +39,14 @@ def aplicar_estilo_responsivo():
             visibility: hidden !important;
             height: 0 !important;
         }
+                [class*="viewerBadge"] {
+            display: none !important;
+        }
+
+        /* Oculta o rodapé padrão "Made with Streamlit" se ele aparecer */
+        footer {
+            display: none !important;
+        }
         
 
         .stMarkdown p {
