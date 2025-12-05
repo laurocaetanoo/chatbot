@@ -38,7 +38,7 @@ def aplicar_estilo_responsivo():
         .stDeployButton {display: none;}
         [data-testid="stToolbar"] {display: none;}
         [data-testid="stDecoration"] {display: none;}
-        .stApp > div:first-child {display: none;}
+        
         
         /* Mantém o sidebar visível */
         [data-testid="stSidebar"] {
