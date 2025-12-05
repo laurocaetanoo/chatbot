@@ -54,6 +54,16 @@ def aplicar_estilo_responsivo():
             visibility: visible !important;
             display: block !important;
         }
+        header {
+            visibility: visible !important;
+            height: auto !important;
+        }
+        
+        /* Remove apenas os botões indesejados do header */
+        header div:has(> .stDeployButton),
+        header div:has(> button[title="View app source"]) {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
