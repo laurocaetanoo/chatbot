@@ -52,6 +52,12 @@ def aplicar_estilo_responsivo():
         div._link_gzau3_10 {
             display: none !important;
         }
+        [href*="streamlit"],
+        [href*="Streamlit"] {
+            visibility: hidden !important;
+            display: none !important;
+            opacity: 0 !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
