@@ -37,6 +37,11 @@ def aplicar_estilo_responsivo():
         img[data-testid="appCreatorAvatar"] {
             display: none !important;
         }
+        div[class*="profileContainer"] {
+            display: none !important;
+            visibility: hidden !important;
+            width: 0px !important;
+        }
         
 
         .stMarkdown p {
