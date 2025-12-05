@@ -47,6 +47,13 @@ def aplicar_estilo_responsivo():
             display: none !important;
         }
         #MainMenu {visibility: hidden;}
+         footer {visibility: hidden;}
+        
+        /* Mantém o sidebar e outros elementos visíveis */
+        [data-testid="stSidebar"] {
+            visibility: visible !important;
+            display: block !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
