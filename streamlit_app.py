@@ -34,38 +34,17 @@ def aplicar_estilo_responsivo():
         }
 
         /* Esconder link do Streamlit no rodapé e cabeçalho */
-        a[href*="streamlit.io"] {
+        /* Método nuclear: Remove TUDO do footer */
+        .stApp footer,
+        .stApp > div:last-child,
+        .stApp > a:last-child,
+        .stApp > div > div:last-child {
             display: none !important;
-        }
-        /* Método 2: Remove pela classe específica */
-        ._container_gzau3_1,
-        ._viewerBadge_nim44_23 {
-            display: none !important;
-        }
-        
-        /* Método 3: Remove o footer completo */
-        footer {
-            visibility: hidden !important;
-            display: none !important;
-            height: 0px !important;
-        }
-        div._link_gzau3_10 {
-            display: none !important;
-        }
-        [href*="streamlit"],
-        [href*="Streamlit"] {
-            visibility: hidden !important;
-            display: none !important;
-            opacity: 0 !important;
-        }
-        [title*="Streamlit"],
-        [aria-label*="Streamlit"] {
-            display: none !important;
-        }
-        
-        /* Remove o container do footer se existir */
-        .stApp > footer {
-            display: none !important;
+            height: 0 !important;
+            width: 0 !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            left: -9999px !important;
         }
 
         .stMarkdown p {
