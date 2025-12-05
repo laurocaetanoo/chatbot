@@ -66,7 +66,7 @@ def aplicar_estilo_responsivo():
                 padding-top: 1rem !important;
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
-                padding-bottom: 5rem !important;
+                padding-bottom: 2rem !important;
             }
             
             .stChatInput textarea {
