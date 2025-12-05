@@ -32,7 +32,7 @@ def aplicar_estilo_responsivo():
         <style> 
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
-        div[data-testid="stToolbarActionButton"]:has(span[data-testid="stToolbarActionButtonLabel"])
+        
         
 
         .stMarkdown p {
