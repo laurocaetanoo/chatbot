@@ -42,7 +42,9 @@ def aplicar_estilo_responsivo():
             visibility: hidden !important;
             width: 0px !important;
         }
-        
+        a[href*="share.streamlit.io/user/laurocaetanoo"] {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
