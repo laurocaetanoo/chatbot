@@ -26,31 +26,7 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
         
-        div[data-testid="stToolbarActionButton"]:has(span[data-testid="stToolbarActionButtonLabel"]) {
-            display: none !important;
-        }
-         div[data-testid="stToolbarActionButton"]:has(div[data-testid="stToolbarActionButtonIcon"]) {
-            display: none !important;
-        }
-
         a[href*="streamlit.io"] {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        ._container_gzau3_1 {
-            display: none !important;
-        }
-        footer {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        [href*="streamlit"] {
-            display: none !important;
-        }
-        [class*="viewerBadge"] {
-            display: none !important;
-        }
-                div._link_gzau3_10 {
             display: none !important;
         }
 
