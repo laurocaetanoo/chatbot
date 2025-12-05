@@ -47,7 +47,9 @@ def aplicar_estilo_responsivo():
         footer {
             display: none !important;
         }
-        
+        [data-testid="stStatusWidget"] {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
