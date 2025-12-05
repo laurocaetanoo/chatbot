@@ -33,14 +33,9 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
-        header {visibility: hidden; height: 0px !important;}
-        div[data-testid="stDecoration"],
-        button[title="View app source"],
-        a[href*="github.com"] {
+        .stDeployButton {
             display: none !important;
         }
-        #MainMenu {visibility: hidden !important;}
-        footer {visibility: hidden !important;}
 
         .stMarkdown p {
             font-size: 1.1rem; 
