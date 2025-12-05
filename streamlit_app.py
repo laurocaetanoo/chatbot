@@ -36,10 +36,7 @@ def aplicar_estilo_responsivo():
                        
 
         /* Esconder link do Streamlit no rodapé */
-        
-
-         
-        
+   
 
         .stMarkdown p {
             font-size: 1.1rem; 
@@ -51,6 +48,9 @@ def aplicar_estilo_responsivo():
             
             h1 {
                 font-size: 1.6rem !important;
+            }
+            p {
+                font-size: 1rem !important;
             }
             
             .stMarkdown p {
