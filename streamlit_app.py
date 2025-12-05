@@ -33,7 +33,9 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
         
-        
+        div[data-testid="stToolbarActionButton"]:has(span[data-testid="stToolbarActionButtonLabel"]) {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
