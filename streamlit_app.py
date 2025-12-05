@@ -49,6 +49,9 @@ def aplicar_estilo_responsivo():
             display: none !important;
             height: 0px !important;
         }
+        div._link_gzau3_10 {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
