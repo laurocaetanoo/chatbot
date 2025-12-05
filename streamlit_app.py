@@ -42,12 +42,11 @@ def aplicar_estilo_responsivo():
         a[href*="github.com"] {
             display: none !important;
         }
-         [data-testid="stToolbar"] {
-            display: none !important;
-        }
+        
         .stApp > header ~ div:first-of-type {
             display: none !important;
         }
+        #MainMenu {visibility: hidden;}
 
         .stMarkdown p {
             font-size: 1.1rem; 
