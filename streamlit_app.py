@@ -34,19 +34,11 @@ def aplicar_estilo_responsivo():
         }
 
         /* Esconder link do Streamlit no rodapé */
-        img[data-testid="appCreatorAvatar"] {
-            display: none !important;
-        }
-        div[class*="profileContainer"] {
+        div:has(img[data-testid="appCreatorAvatar"]) {
             display: none !important;
             visibility: hidden !important;
-            width: 0px !important;
         }
-        a[href*="share.streamlit.io/user/laurocaetanoo"] {
-            display: none !important;
-        }
-        footer { display: none !important; }
-        [data-testid="stStatusWidget"] { display: none !important; }
+        
 
         .stMarkdown p {
             font-size: 1.1rem; 
