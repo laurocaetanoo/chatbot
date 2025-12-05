@@ -33,17 +33,8 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
-        /* Remove a toolbar */
-        .stToolbar {display: none;}
-        .stDeployButton {display: none;}
-        [data-testid="stToolbar"] {display: none;}
-        [data-testid="stDecoration"] {display: none;}
-        
-        
-        /* Mantém o sidebar visível */
-        [data-testid="stSidebar"] {
-            background-color: #f8f9fa;
-        }
+        header {display: none !important;}
+
 
         .stMarkdown p {
             font-size: 1.1rem; 
