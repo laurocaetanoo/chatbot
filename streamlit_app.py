@@ -27,16 +27,12 @@ def aplicar_estilo_responsivo():
         div[data-testid="stToolbarActionButton"]:has(span[data-testid="stToolbarActionButtonLabel"]) {
             display: none !important;
         }
-         div[data-testid="stToolbarActionButton"]:has(div[data-testid="stToolbarActionButtonIcon"]) {
+        div[data-testid="stToolbarActionButton"]:has(div[data-testid="stToolbarActionButtonIcon"]) {
             display: none !important;
         }
         #MainMenu {
             display: none !important;
         }
-                       
-
-        /* Esconder link do Streamlit no rodapé */
-   
 
         .stMarkdown p {
             font-size: 1.1rem; 
@@ -44,13 +40,9 @@ def aplicar_estilo_responsivo():
         }
                 
         
-        @media (max-width: 768px) {
-            
+        @media (max-width: 768px) {            
             h1 {
                 font-size: 1.8rem !important;
-            }
-            p {
-                font-size: 1rem !important;
             }
             
             .stMarkdown p {
@@ -64,7 +56,7 @@ def aplicar_estilo_responsivo():
 
             .block-container {
                 padding-top: 1rem !important;
-                padding-left: 1rem !important;
+                padding-left: 0.5rem !important;
                 padding-right: 1rem !important;
                 padding-bottom: 2rem !important;
             }
