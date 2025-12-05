@@ -15,18 +15,25 @@ MODELO_EMBEDDING_OPENAI = "text-embedding-3-small"
 MODELO_LLM_RESPONDEDOR = "gemini-2.5-flash"
 MODELO_LLM_LITE = "gemini-2.5-flash-lite" 
 
+st.set_page_config(
+    page_title="Assistente SI - IFMA",
+    page_icon="🤖",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None
+    }
+)
+
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
-        .stApp > header {
-            display: none;
-        }
-        #MainMenu {
-            visibility: hidden;
-        }
+         header {visibility: hidden; height: 0px !important;}
 
         .stMarkdown p {
             font-size: 1.1rem; 
@@ -174,7 +181,7 @@ def normalizar(s):
     s = re.sub(r'[^\w\s]', '', s)
     return s
 
-st.set_page_config(page_title="Assistente SI - IFMA", page_icon="🤖")
+#st.set_page_config(page_title="Assistente SI - IFMA", page_icon="🤖")
 
 aplicar_estilo_responsivo()
 
