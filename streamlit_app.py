@@ -29,41 +29,42 @@ st.set_page_config(
 
 def aplicar_estilo_responsivo():
     st.markdown("""
+        <script>
+        // Aguarda a página carregar
+        window.addEventListener('load', function() {
+            // Remove elementos após um pequeno delay para garantir que foram renderizados
+            setTimeout(function() {
+                // Remove botões de deploy/fork
+                const deployButtons = document.querySelectorAll('.stDeployButton, [data-testid="stDeployButton"]');
+                deployButtons.forEach(btn => btn.style.display = 'none');
+                
+                // Remove ícone do GitHub
+                const githubButtons = document.querySelectorAll('button[title*="github"], button[title*="source"]');
+                githubButtons.forEach(btn => btn.style.display = 'none');
+                
+                // Remove links do GitHub
+                const githubLinks = document.querySelectorAll('a[href*="github"]');
+                githubLinks.forEach(link => link.style.display = 'none');
+                
+                // Remove a barra de ferramentas do Streamlit Cloud
+                const toolbar = document.querySelector('[data-testid="stToolbar"]');
+                if (toolbar) toolbar.style.display = 'none';
+                
+                // Remove texto "Fork"
+                const elements = document.querySelectorAll('div, span, button, a');
+                elements.forEach(el => {
+                    if (el.textContent && el.textContent.includes('Fork')) {
+                        el.style.display = 'none';
+                    }
+                });
+            }, 1000);
+        });
+        </script>
         <style> 
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
-        .stDeployButton {
-            display: none !important;
-        }
-        button[title="View app source"] {
-            display: none !important;
-        }
-        a[href*="github.com"] {
-            display: none !important;
-        }
         
-        .stApp > header ~ div:first-of-type {
-            display: none !important;
-        }
-        #MainMenu {visibility: hidden;}
-         footer {visibility: hidden;}
-        
-        /* Mantém o sidebar e outros elementos visíveis */
-        [data-testid="stSidebar"] {
-            visibility: visible !important;
-            display: block !important;
-        }
-        header {
-            visibility: visible !important;
-            height: auto !important;
-        }
-        
-        /* Remove apenas os botões indesejados do header */
-        header div:has(> .stDeployButton),
-        header div:has(> button[title="View app source"]) {
-            display: none !important;
-        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
