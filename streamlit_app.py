@@ -42,6 +42,9 @@ def aplicar_estilo_responsivo():
         a[href*="github.com"] {
             display: none !important;
         }
+         [data-testid="stToolbar"] {
+            display: none !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
