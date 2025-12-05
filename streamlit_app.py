@@ -40,6 +40,10 @@ def aplicar_estilo_responsivo():
         ._container_gzau3_1 {
             display: none !important;
         }
+        footer {
+            display: none !important;
+            visibility: hidden !important;
+        }
 
         .stMarkdown p {
             font-size: 1.1rem; 
