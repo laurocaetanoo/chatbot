@@ -17,9 +17,7 @@ MODELO_LLM_LITE = "gemini-2.5-flash-lite"
 
 st.set_page_config(
     page_title="Assistente SI - IFMA",
-    page_icon="🤖",
-    layout="wide",
-    
+    page_icon="🤖", 
 )
 
 def aplicar_estilo_responsivo():
