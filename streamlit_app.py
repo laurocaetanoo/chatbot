@@ -33,7 +33,12 @@ def aplicar_estilo_responsivo():
           
         /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
 
-        header {display: none !important;}
+        div[data-testid="stToolbar"], 
+        div[data-testid="stDecoration"],
+        button[title="View app source"],
+        a[href*="github.com"] {
+            display: none !important;
+        }
 
 
         .stMarkdown p {
