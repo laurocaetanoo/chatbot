@@ -23,8 +23,6 @@ st.set_page_config(
 def aplicar_estilo_responsivo():
     st.markdown("""
         <style> 
-          
-        /*#MainMenu {visibility: hidden; display: none;}*/ /* esconde o menu hamburguer */
         
         div[data-testid="stToolbarActionButton"]:has(span[data-testid="stToolbarActionButtonLabel"]) {
             display: none !important;
@@ -32,34 +30,16 @@ def aplicar_estilo_responsivo():
          div[data-testid="stToolbarActionButton"]:has(div[data-testid="stToolbarActionButtonIcon"]) {
             display: none !important;
         }
-
+        #MainMenu {
+            display: none !important;
+        }
                        
 
         /* Esconder link do Streamlit no rodapé */
-        img[alt="App Creator Avatar"] {
-            display: none !important;
-        }
-        div:has(img[alt="App Creator Avatar"]) {
-            display: none !important;
-        }
-        a[href*="share.streamlit.io/user/"] {
-            display: none !important;
-        }
+        
 
-        /* ALVO 4: Pelo nome da classe que começa com "_profileContainer" 
-           (O símbolo ^= significa "começa com") */
-        div[class^="_profileContainer"] {
-            display: none !important;
-        }
-        div[class^="_viewerBadge"] {
-            display: none !important;
-        }
-        footer { 
-            display: none !important; 
-        }
-        [data-testid="stStatusWidget"] { 
-            display: none !important; 
-        }
+         
+        
 
         .stMarkdown p {
             font-size: 1.1rem; 
