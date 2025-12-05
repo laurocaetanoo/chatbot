@@ -33,22 +33,14 @@ def aplicar_estilo_responsivo():
             display: none !important;
         }
 
+                       
+
         /* Esconder link do Streamlit no rodapé */
-        div:has(img[data-testid="appCreatorAvatar"]) {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        div:has(a[href*="share.streamlit.io/user/laurocaetanoo"]) {
+        img[alt="App Creator Avatar"] {
             display: none !important;
         }
 
-        /* --- 3. RODAPÉ PADRÃO --- */
-        footer { 
-            display: none !important; 
-        }
-        [data-testid="stStatusWidget"] { 
-            display: none !important; 
-        }
+        
 
         .stMarkdown p {
             font-size: 1.1rem; 
