@@ -41,13 +41,6 @@ def aplicar_estilo_responsivo():
         }
         
         @media (max-width: 768px) {
-            .sidebar .sidebar-content {
-                width: 100%;
-            }
-            [data-testid="stSidebar"] {
-                top: 0;
-                max-height: 100vh;
-            }
             
             h1 {
                 font-size: 1.6rem !important;
