@@ -267,6 +267,13 @@ REGRAS IMPORTANTES:
 3. **Honestidade:** Se a resposta não estiver no contexto, diga "Não encontrei essa informação específica nos documentos oficiais".
 4. **Sintetize:** Junte informações de diferentes partes do contexto para dar uma resposta completa.
 
+DIRETRIZ DE LISTAS LONGAS (IMPORTANTE):
+Se a pergunta pedir uma lista de itens E detalhes sobre cada um (ex: "Liste as disciplinas do período X e fale sobre elas"), o contexto pode não conter os detalhes de todas.
+Nesse caso:
+- Forneça a lista completa dos nomes.
+- Forneça os detalhes apenas dos que estiverem no contexto.
+- **Encerre a resposta dizendo:** "Para ver a ementa ou detalhes específicos de alguma dessas disciplinas, basta me perguntar o nome dela individualmente."
+
 Contexto Recuperado:
 {contexto}
 
