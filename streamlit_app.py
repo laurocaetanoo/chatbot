@@ -9,6 +9,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from google.api_core.exceptions import ResourceExhausted
 
 PASTA_INDICE_FAISS = "faiss_index"
 MODELO_EMBEDDING_OPENAI = "text-embedding-3-small"
@@ -122,12 +123,13 @@ def carregar_modelos_llm():
 
     try:
         llm_resp = ChatGoogleGenerativeAI(model=MODELO_LLM_RESPONDEDOR, temperature=0.1)
+        llm_backup = ChatGoogleGenerativeAI(model=MODELO_LLM_LITE, temperature=0.1)
         llm_class = ChatGoogleGenerativeAI(model=MODELO_LLM_LITE, temperature=0.0)
         llm_multiquery = ChatGoogleGenerativeAI(model=MODELO_LLM_LITE, temperature=0.7)
         llm_chitchat = ChatGoogleGenerativeAI(model=MODELO_LLM_LITE, temperature=0.4)
         print("Modelos LLMs inicializados com sucesso.")
 
-        return llm_resp, llm_class, llm_multiquery, llm_chitchat
+        return llm_resp, llm_backup, llm_class, llm_multiquery, llm_chitchat
     except Exception as e:
         st.error(f"Erro ao inicializar os LLMs do Google (Gemini): {e}")
         return None, None
@@ -191,9 +193,9 @@ st.caption("Pergunte sobre disciplinas, regras do curso, equivalências...")
 
 carregar_api_keys()
 retriever = carregar_retriever()
-llm_resp, llm_class, llm_multiquery, llm_chitchat = carregar_modelos_llm()
+llm_resp, llm_backup, llm_class, llm_multiquery, llm_chitchat = carregar_modelos_llm()
 
-if retriever and llm_resp and llm_class and llm_multiquery and llm_chitchat:
+if retriever and llm_resp and llm_backup and llm_class and llm_multiquery and llm_chitchat:
     
     classify_chain, multiquery_chain, chitchat_chain = criar_chains(llm_class, llm_multiquery, llm_chitchat)
 
@@ -228,7 +230,7 @@ if retriever and llm_resp and llm_class and llm_multiquery and llm_chitchat:
 
                     if not topico:
                         eh_academico = True
-                        print("Log: Classificação vazia, assumindo Acadêmico por segurança.")
+                        print("Classificação vazia, assumindo Acadêmico por segurança.")
 
                     if eh_academico:
                         st.spinner("Assistente: *Consultando documentos oficiais...*")
@@ -252,7 +254,7 @@ if retriever and llm_resp and llm_class and llm_multiquery and llm_chitchat:
                     
                         if not docs_unicos:
                             resposta_final = "Desculpe, não encontrei nenhuma informação relevante nos documentos oficiais sobre esse assunto específico."
-                            print("Log: Curto-circuito ativado (0 documentos encontrados).")
+                            print("Curto-circuito ativado (0 documentos encontrados).")
                    
                         else:
                             contexto = "\n\n".join([d.page_content for d in docs_unicos[:10]])
@@ -282,7 +284,16 @@ Pergunta do Aluno:
 
 Resposta Completa e Prestativa:
 """
-                            resposta_obj = llm_resp.invoke(prompt_rag)
+                            try:
+                                resposta_obj = llm_resp.invoke(prompt_rag)
+                                print("Resposta gerada pelo Modelo PRINCIPAL.")
+                            except Exception as e:
+                                if "429" in str(e) or "ResourceExhausted" in str(e):
+                                    print("ALERTA: Cota do Principal excedida. Usando BACKUP (Lite).")                               
+                                    resposta_obj = llm_backup.invoke(prompt_rag)
+                                else:
+                                    raise e
+
                             if resposta_obj and hasattr(resposta_obj, 'content'):
                                 resposta_final = resposta_obj.content
                             else:
