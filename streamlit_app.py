@@ -14,7 +14,7 @@ from google.api_core.exceptions import ResourceExhausted
 PASTA_INDICE_FAISS = "faiss_index"
 MODELO_EMBEDDING_OPENAI = "text-embedding-3-small"
 MODELO_LLM_RESPONDEDOR = "gemini-2.5-flash"
-MODELO_LLM_LITE = "gemini-2.0-flash" 
+MODELO_LLM_LITE = "gemini-1.5-flash" 
 
 st.set_page_config(
     page_title="Assistente SI - IFMA",
