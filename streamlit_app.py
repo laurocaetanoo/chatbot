@@ -188,7 +188,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("**Sobre:**\nChatbot para tirar dúvidas acadêmicas.")
 
-st.title("🤖 Assistente Virtual de Sistemas de Informação - IFMA")
+st.title("🤖 Assistente Virtual de Sistemas de Informação - IFMA ")
 st.caption("Pergunte sobre disciplinas, regras do curso, equivalências...")
 
 carregar_api_keys()
