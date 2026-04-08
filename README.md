@@ -10,7 +10,6 @@ O projeto tem como objetivo oferecer um canal de apoio informacional capaz de re
 
 - matriz curricular;
 - pré-requisitos de disciplinas;
-- estágio;
 - atividades complementares;
 - Trabalho de Conclusão de Curso (TCC);
 - matrícula e rematrícula;
