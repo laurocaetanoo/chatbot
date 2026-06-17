@@ -1,93 +1,116 @@
-
-import pdfplumber
-import pandas
-import re
 import os
-
-def extrair_equivalencia_obrigatorias(pdf_path: str):
-    print("-> Executando: extrair_equivalencia_obrigatorias...")   
-    paginas_alvo = [120, 121] 
-    all_table_rows = []
-    
-    try:
-        with pdfplumber.open(pdf_path) as pdf:
-            for page_num in paginas_alvo:
-                if page_num < len(pdf.pages):
-                    page = pdf.pages[page_num]
-                    table = page.extract_table(table_settings={"vertical_strategy": "text", "horizontal_strategy": "text"})
-                    if table:
-                        all_table_rows.extend(table)
-    except Exception as e:
-        print(f"   -- Erro ao ler PDF na extração de equivalência: {e}")
+import re
+import pdfplumber
+ 
+from .extracao_utils import celula, para_int, compactar_linha
+ 
+MARCADOR_INICIO = "Disciplinas PPC 2012"   
+MARCADOR_FIM = "Optativas - GRUPO"   
+ 
+PADRAO_PERIODO = re.compile(r"\d+º\s*Período", re.IGNORECASE)
+CABECALHO_2012 = "disciplinas ppc 2012"
+ 
+def _normalizar_natureza(valor):
+    texto = celula(valor).replace("0BR", "OBR")
+    return texto
+ 
+ 
+def _tem_equivalencia(aprov_raw):
+    return bool(re.sub(r"[-\s]", "", aprov_raw))
+ 
+ 
+def _montar_aproveitamento(aprov_raw, ch_raw, nat_raw):
+    if not _tem_equivalencia(aprov_raw):
         return []
-
-    rows_de_8_colunas = [row for row in all_table_rows if row and len(row) == 8]
-    if not rows_de_8_colunas:
-        print("   -- AVISO: Nenhuma linha encontrada para a Matriz de Equivalência (Obrigatórias).")
+ 
+    chs = re.findall(r"\d+", ch_raw)
+    n = len(chs)
+    if n == 0:
         return []
-
-    headers_temp = [f'col_{i}' for i in range(8)]
-    df_temp = pandas.DataFrame(rows_de_8_colunas, columns=headers_temp)
-    for col in headers_temp:
-        df_temp[col] = df_temp[col].str.replace('\n', ' ', regex=False)
-
-    df_corrigido = pandas.DataFrame({
-        'disciplina_2012': (df_temp['col_0'].fillna('') + ' ' + df_temp['col_1'].fillna('')).str.strip(),
-        'ch_2012': df_temp['col_2'], 'nat_2012': df_temp['col_3'],
-        'aproveitamento_2023': (df_temp['col_4'].fillna('') + ' ' + df_temp['col_5'].fillna('')).str.strip(),
-        'ch_2023': df_temp['col_6'], 'nat_2023': df_temp['col_7']
-    })
-    
-    merged_data = []
-    current_period = "Não especificado"
-    for _, row in df_corrigido.iterrows():
-        disciplina_2012 = str(row.get('disciplina_2012', '')).strip()
-        ch_2012_str = str(row.get('ch_2012', '')).strip()
-        aproveitamento_2023 = str(row.get('aproveitamento_2023', '')).strip()
-        is_full_row = False
-        try:
-            int(ch_2012_str); is_full_row = bool(disciplina_2012)
-        except (ValueError, TypeError): is_full_row = False
-        
-        if 'Período' in disciplina_2012:
-            current_period = disciplina_2012
-            continue
-        if is_full_row:
-            new_item = row.to_dict(); new_item['periodo'] = current_period
-            merged_data.append(new_item)
-        elif (disciplina_2012 or aproveitamento_2023) and merged_data:
-            last_item = merged_data[-1]
-            if disciplina_2012: last_item['disciplina_2012'] += ' ' + disciplina_2012
-            if aproveitamento_2023: last_item['aproveitamento_2023'] += ' ' + aproveitamento_2023
-            if row.get('ch_2023'): last_item['ch_2023'] += ' ' + str(row.get('ch_2023'))
-            if row.get('nat_2023'): last_item['nat_2023'] += ' ' + str(row.get('nat_2023'))
-
-    final_data_bruta = []
-    for item in merged_data:
-        for key, value in item.items():
-            if isinstance(value, str): item[key] = re.sub(r'\s+', ' ', value).strip()
-        
-        aproveitamento_raw = item['aproveitamento_2023']
-        chs_2023_raw = str(item['ch_2023'])
-        nats_2023_raw = str(item['nat_2023'])
-        
-        disciplinas_2023 = [d.strip() for d in re.split(r'\s{2,}|,\s|,', aproveitamento_raw) if d.strip() and d.lower() != 'none']
-        chs_2023 = [ch.strip() for ch in re.split(r'\s+', chs_2023_raw) if ch.strip()]
-        nats_2023 = [nat.strip() for nat in re.split(r'\s+', nats_2023_raw) if nat.strip()]
-        
-        aproveitamento_list = []
-        for i, disc in enumerate(disciplinas_2023):
-            aproveitamento_list.append({'disciplina': disc, 'ch': chs_2023[i] if i < len(chs_2023) else '', 'nat': nats_2023[i] if i < len(nats_2023) else ''})
-        
-        processed_item = {
-            'tipo_info': 'equivalencia_obrigatoria', 
-            'periodo': item['periodo'],
-            'disciplina_2012': item['disciplina_2012'],
-            'ch_2012': item['ch_2012'],
-            'nat_2012': item['nat_2012'],
-            'aproveitamento_2023': aproveitamento_list
-        }
-        final_data_bruta.append(processed_item)
-
-    print(f"   -- Extração de Equivalência (Obrigatórias) concluída: {len(final_data_bruta)} registros.")
-    return final_data_bruta
+ 
+    nats = [s for s in re.split(r"\s+", _normalizar_natureza(nat_raw)) if s]
+ 
+    if n == 1:
+        nomes = [celula(aprov_raw)]
+    else:
+        partes = [p for p in aprov_raw.split("\n") if p.strip()]
+        if len(partes) != n:  
+            partes = [p for p in re.split(r",", aprov_raw.replace("\n", " ")) if p.strip()]
+        nomes = [re.sub(r"\s+", " ", p).strip().strip(",").strip() for p in partes]
+ 
+    equivalencias = []
+    for i in range(n):
+        equivalencias.append({
+            "disciplina": nomes[i] if i < len(nomes) else "",
+            "ch": para_int(chs[i]),
+            "nat": nats[i] if i < len(nats) else "",
+        })
+    return equivalencias
+ 
+ 
+def _linha_para_equivalencia(cels, periodo):
+    if len(cels) != 6:
+        return None
+    if cels[0].strip().lower() == CABECALHO_2012:   
+        return None
+ 
+    disc_2012, ch_2012, nat_2012, aprov_2023, ch_2023, nat_2023 = cels
+    return {
+        "tipo_info": "equivalencia_obrigatoria",
+        "periodo": periodo,
+        "disciplina_2012": celula(disc_2012),
+        "ch_2012": para_int(ch_2012),
+        "nat_2012": _normalizar_natureza(nat_2012),
+        "aproveitamento_2023": _montar_aproveitamento(aprov_2023, ch_2023, nat_2023),
+    }
+ 
+ 
+def _coletar_paginas_da_matriz(pdf):
+    inicio = None
+    for i, pagina in enumerate(pdf.pages):
+        if MARCADOR_INICIO in (pagina.extract_text() or ""):
+            inicio = i
+            break
+    if inicio is None:
+        return []
+ 
+    paginas = []
+    for i in range(inicio, len(pdf.pages)):
+        texto = pdf.pages[i].extract_text() or ""
+        if i != inicio and MARCADOR_FIM in texto:
+            break
+        paginas.append(i)
+    return paginas
+ 
+ 
+def extrair_equivalencia_obrigatorias(caminho_pdf):
+    if not os.path.exists(caminho_pdf):
+        print(f"[erro] Arquivo não encontrado: {caminho_pdf}")
+        return []
+ 
+    registros = []
+    periodo_atual = "Não especificado"
+ 
+    with pdfplumber.open(caminho_pdf) as pdf:
+        paginas = _coletar_paginas_da_matriz(pdf)
+        if not paginas:
+            print("[aviso] ANEXO II (matriz de equivalência) não localizado.")
+            return []
+ 
+        for i in paginas:
+            for tabela in pdf.pages[i].extract_tables():
+                for linha in tabela:
+                    cels = compactar_linha(linha)
+                    if not cels:
+                        continue
+ 
+                    if len(cels) == 1 and PADRAO_PERIODO.search(cels[0]):
+                        periodo_atual = celula(cels[0])
+                        continue
+ 
+                    registro = _linha_para_equivalencia(cels, periodo_atual)
+                    if registro is not None:
+                        registros.append(registro)
+ 
+    print(f"[ok] Equivalência (obrigatórias): {len(registros)} disciplinas de 2012.")
+    return registros
