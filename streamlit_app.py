@@ -192,6 +192,8 @@ with st.sidebar:
     st.header("Configurações")
     if st.button("🗑️ Nova Conversa"):
         st.session_state.messages = [] 
+        st.session_state.processando = False
+        st.session_state.pergunta_pendente = None
         st.rerun() 
     
     st.markdown("---")
@@ -211,12 +213,29 @@ if retriever and llm_resp and llm_backup and llm_class and llm_multiquery and ll
     if "messages" not in st.session_state:
         st.session_state.messages = []
  
+    if "processando" not in st.session_state:
+        st.session_state.processando = False
+ 
+    if "pergunta_pendente" not in st.session_state:
+        st.session_state.pergunta_pendente = None
+ 
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
  
-    if prompt_pergunta := st.chat_input("Digite sua pergunta..."):
-        
+    entrada = st.chat_input(
+        "Digite sua pergunta...",
+        disabled=st.session_state.processando,
+    )
+ 
+    if entrada:
+        st.session_state.pergunta_pendente = entrada
+        st.session_state.processando = True
+        st.rerun()
+ 
+    if st.session_state.processando and st.session_state.pergunta_pendente:
+        prompt_pergunta = st.session_state.pergunta_pendente
+ 
         st.session_state.messages.append({"role": "user", "content": prompt_pergunta})
         with st.chat_message("user"):
             st.markdown(prompt_pergunta)
@@ -250,7 +269,7 @@ if retriever and llm_resp and llm_backup and llm_class and llm_multiquery and ll
                                 conteudos_vistos.add(doc.page_content)
                     
                         if not docs_unicos:
-                            resposta_final = "Desculpe, não encontrei nenhuma informação relevante nos documentos oficiais sobre esse assunto específico."
+                            resposta_final = "Não encontrei nenhuma informação relevante nos documentos oficiais sobre esse assunto específico."
                             print("Curto-circuito ativado (0 documentos encontrados).")
                    
                         else:
@@ -304,5 +323,10 @@ Resposta Completa e Prestativa:
  
                 except Exception as e:
                     st.error(f"Ocorreu um erro ao gerar a resposta: {e}")
+ 
+                finally:
+                    st.session_state.processando = False
+                    st.session_state.pergunta_pendente = None
+                    st.rerun()
 else:
     st.error("O chatbot não pôde ser inicializado.")
